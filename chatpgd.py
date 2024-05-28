@@ -417,29 +417,28 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Display chat messages from history on app rerun
-while True:
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-    
-    if prompt := st.chat_input("Digite sua dúvida sobre o PGD?"):
-        # Display user message in chat message container
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        response = ""
-        pergunta += "\npergunta:\n" + prompt
-        result = llm.invoke(pergunta)
-        response = result.content
-        pergunta += "\nresposta:\n" + result.content
-        print(result.content)
-        if response:
-            with st.chat_message("assistant"):
-                st.markdown(response)
-            st.session_state.messages.append({"role": "assistant", "content": response})
-    # while True:
-    #     pergunta += "\npergunta:\n" + input("\n")
-    #     result = llm.invoke(pergunta)
-    #     print(result.content)
-    #     pergunta += "\nresposta:\n" + result.content
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if prompt := st.chat_input("Digite sua dúvida sobre o PGD?"):
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    response = ""
+    pergunta += "\npergunta:\n" + prompt
+    result = llm.invoke(pergunta)
+    response = result.content
+    pergunta += "\nresposta:\n" + result.content
+    print(result.content)
+    if response:
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        st.session_state.messages.append({"role": "assistant", "content": response})
+# while True:
+#     pergunta += "\npergunta:\n" + input("\n")
+#     result = llm.invoke(pergunta)
+#     print(result.content)
+#     pergunta += "\nresposta:\n" + result.content
