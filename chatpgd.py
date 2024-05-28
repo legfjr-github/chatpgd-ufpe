@@ -418,8 +418,9 @@ if "messages" not in st.session_state:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    if message["role"] =='user':
+    if message["role"] =="user":
         pergunta += "\npergunta:\n" + message["content"]
+        print(message["content"])
     else:
         pergunta += "\nresposta:\n" + message["content"]
     with st.chat_message(message["role"]):
