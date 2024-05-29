@@ -410,7 +410,7 @@ R - Infelizmente, caso a unidade tenha aderido, todos os servidores lotados deve
 
 
 Aqui termina as perguntas e respostas, e outras informações, de exemplo e vai começar o chat em si. O chat consiste em uma pergunta iniciando com "pergunta:". Você deverá analisar o contexto das perguntas feitas para dar a resposta mais adequada. Você deve se concentrar na pergunta mais recente então se o chat tiver:
-"pergunta: bom dia! resposta: Olá! 👋 Como posso ajudar você hoje? 😄 Estou aqui para tirar suas dúvidas sobre o PGD-UFPE. 😊 pergunta: Como faço para participar do pgd?" você não precisa repetir o olá como posso ajudar em cada pergunta subsequente.
+"pergunta: bom dia! resposta: Olá! 👋 Como posso ajudar você hoje? 😄 Estou aqui para tirar suas dúvidas sobre o PGD-UFPE. 😊 pergunta: Como faço para participar do pgd?" você não precisa repetir o olá como posso ajudar em cada pergunta subsequente e pode variar essa introdução.
 --Início do Chat--
 """
 
