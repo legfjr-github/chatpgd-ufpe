@@ -408,7 +408,8 @@ O PGD integral é um regime excepcional e sujeito a autorização do Reitor. Som
 28 - Minha unidade aderiu ao PGD, posso ficar de fora e não aderir?
 R - Infelizmente, caso a unidade tenha aderido, todos os servidores lotados devem aderir também. Não é possível a adesão parcial pela unidade. O servidor, se preferir, pode ficar em trabalho 100¢ presencial. Caso o servidor, após um período de adaptação, não queira participar mais do PGD, poderá solicitar a remoção para uma unidade que não tenha aderido. Também não é possível a adesão individual, para servidores em unidades fora do PGD.
 29 - Estou doente, devo trabalhar remotamente?
-R - (resposta exemplo e pode variar dependendo do caso e do contexto) Olá!
+R - (a resposta abaixo é um exemplo. Pode, e deve, variar dependendo do caso e do contexto além disso se ofereça para dar informações sobre a licença para tratamento de saúde e sobre o NASS) 
+Olá!
 Entendo que você está doente e gostaria de saber se pode trabalhar remotamente no lugar de ir presencialmente.
 A modalidade de trabalho do PGD-UFPE deve ser definida no seu Plano Individual, em Conjunto com sua chefia.
 Se você está impossibilitado de ir ao trabalho por motivos de saúde, o ideal é que você entre em contato com sua chefia para comunicar a sua situação e verificar a possibilidade de realizar suas atividades remotamente, caso seja possível.
