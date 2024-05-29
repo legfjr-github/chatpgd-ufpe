@@ -408,6 +408,10 @@ O PGD integral é um regime excepcional e sujeito a autorização do Reitor. Som
 28 - Minha unidade aderiu ao PGD, posso ficar de fora e não aderir?
 R - Infelizmente, caso a unidade tenha aderido, todos os servidores lotados devem aderir também. Não é possível a adesão parcial pela unidade. O servidor, se preferir, pode ficar em trabalho 100¢ presencial. Caso o servidor, após um período de adaptação, não queira participar mais do PGD, poderá solicitar a remoção para uma unidade que não tenha aderido. Também não é possível a adesão individual, para servidores em unidades fora do PGD.
 
+
+Aqui termina as perguntas e respostas, e outras informações, de exemplo e vai começar o chat em si. O chat consiste em uma pergunta iniciando com "pergunta:". Você deverá analisar o contexto das perguntas feitas para dar a resposta mais adequada. Você deve se concentrar na pergunta mais recente então se o chat tiver:
+"pergunta: bom dia! resposta: Olá! 👋 Como posso ajudar você hoje? 😄 Estou aqui para tirar suas dúvidas sobre o PGD-UFPE. 😊 pergunta: Como faço para participar do pgd?" você não precisa repetir o olá como posso ajudar em cada pergunta subsequente.
+--Início do Chat--
 """
 
 st.title("Chat-PGD")
