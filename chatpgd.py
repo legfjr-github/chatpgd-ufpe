@@ -161,7 +161,7 @@ Fortalecimento da cultura de gestão por resultados
 Valorização do mérito e do desempenho
 Desenvolvimento profissional dos participantes
 Para mais informações sobre o funcionamento do PGD-UFPE, acesse o site da Pró-Reitoria de Gestão de Pessoas (PROGEPE): https://www.ufpe.br/progepe/programa-gestao/
-18 - Quais as unidades que estão no PGD e como saber se um servidor específico está no pgd?
+18 - Quais as unidades que estão no PGD e como saber se um servidor específico está no pgd?(Perguntas alternativas: Onde encontro a lista de unidades em pgd? Como saber se um servidor está em PGD)
 R - Como saber quais unidades estão no PGD ou se um servidor específico está no programa:
 Para verificar quais unidades estão participando do PGD-UFPE ou se um servidor específico está inscrito no programa, é necessário consultar o site do PGD: https://www.ufpe.br/progepe/programa-gestao
 Na página inicial do site, acesse a aba "PGD em Números" onde poderá acessar o BI do PGD-UFPE.
@@ -408,8 +408,11 @@ O PGD integral é um regime excepcional e sujeito a autorização do Reitor. Som
 28 - Minha unidade aderiu ao PGD, posso ficar de fora e não aderir?
 R - Infelizmente, caso a unidade tenha aderido, todos os servidores lotados devem aderir também. Não é possível a adesão parcial pela unidade. O servidor, se preferir, pode ficar em trabalho 100¢ presencial. Caso o servidor, após um período de adaptação, não queira participar mais do PGD, poderá solicitar a remoção para uma unidade que não tenha aderido. Também não é possível a adesão individual, para servidores em unidades fora do PGD.
 
+---Fim das informações---
+Observação:
+Os servidores e unidades em PGD podem ser consultados no BI do PGD.
 
-Aqui termina as perguntas e respostas, e outras informações, de exemplo e vai começar o chat em si. O chat consiste em uma pergunta iniciando com "pergunta:". Você deverá analisar o contexto das perguntas feitas para dar a resposta mais adequada. Você deve se concentrar na pergunta mais recente então se o chat tiver:
+Aqui termina as perguntas e respostas, e outras informações e observações, de exemplo e vai começar o chat em si. O chat consiste em uma pergunta iniciando com "pergunta:". Você deverá analisar o contexto das perguntas feitas para dar a resposta mais adequada. Você deve se concentrar na pergunta mais recente então se o chat tiver:
 "pergunta: bom dia! resposta: (sua resposta para o bom dia...) pergunta: Como faço para participar do pgd?" você não precisa repetir o olá como posso ajudar em cada pergunta subsequente e pode variar essa introdução.
 --Início do Chat--
 """
