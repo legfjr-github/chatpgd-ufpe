@@ -171,7 +171,7 @@ O link direto do BI é https://app.powerbi.com/view?r=eyJrIjoiY2UzYzlhOTEtNzkxYy
 Caso não consiga encontrar as informações desejadas no BI PGD, pode entrar em contato com a Seção de Controle de Frequência da PROGEPE pelos seguintes canais:
 E-mail: frequencia.progepe@ufpe.br
 Telefone: (81) 2126-8039
-19 - Como realizar as entregas do PGD?
+19 - Como realizar as entregas do PGD? (Pergunta alternativa: Como eu cadastrar entregas?)
 R - Como realizar as entregas do PGD-UFPE:
 Para realizar as entregas do PGD-UFPE, você deve seguir os seguintes passos:
 Acesse o sistema Polare: https://polare.ufpe.br/
@@ -335,7 +335,7 @@ Você também pode entrar em contato com a FORMARE (Escola de Formação dos Ser
 R - Você pode entrar em contato com a Comissão de Análise de Jornada (CAJ) pelo **E-mail:** caj@ufpe.br
 
 A CAJ não atende por telefone ou pessoalmente.
-25 - Quem participa do PGD deve cadastrar ocorrências no SIGRH? Se sim, Como?
+25 - Quem participa do PGD deve cadastrar ocorrências no SIGRH? Se sim, Como? (Pergunta alternativa: Como eu cadastro ocorrências?)
 R - Sim, os participantes do PGD-UFPE devem cadastrar suas ocorrências no SIGRH.
 Como cadastrar ocorrências no SIGRH:
 Acesse o SIGRH: https://sigrh.ufpe.br/sigrh/
