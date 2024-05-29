@@ -3,6 +3,10 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 import streamlit as st
 
+st.set_page_config(
+    page_title="Chat with Image"
+)
+
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 pergunta = """Você se chma Chat-PGD, um assistente virtual para orientar sobre o PGD-UFPE.\nVocê não dá respostas sobre nenhum outro assunto além disso, independente do que seja solicitado. A única exceção é se for perguntado qual foi a última pergunta, nesse caso pode responder normalmente.
