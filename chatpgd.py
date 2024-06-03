@@ -12,6 +12,10 @@ st.markdown("""
 .viewerBadge_link__qRIco{
     visibility: hidden;
 }
+.st-emotion-cache-q16mip e3g6aar1{
+    visibility: hidden;
+}
+
 #MainMenu {visibility: hidden;} 
 footer {visibility: hidden;}
 .viewerBadge_container__r5tak styles_viewerBadge__CvC9N{
