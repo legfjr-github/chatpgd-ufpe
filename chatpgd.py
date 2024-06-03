@@ -9,6 +9,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+header{visibility: hidden;}
 .viewerBadge_link__qRIco{visibility: hidden;}
 #MainMenu {visibility: hidden;} 
 footer {visibility: hidden;}
