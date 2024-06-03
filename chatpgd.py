@@ -20,6 +20,9 @@ footer {visibility: hidden;}
 .st-emotion-cache-h4xjwg ezrtsby2{
     visibility: hidden;
 }
+.st-emotion-cache-ch5dnh ef3psqc5{
+    visibility: hidden;
+}
 </style>
 """, unsafe_allow_html=True)
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
