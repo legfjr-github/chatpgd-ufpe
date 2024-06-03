@@ -9,12 +9,17 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+.viewerBadge_link__qRIco{
+    visibility: hidden;
+}
+
 .viewerBadge_container__r5tak styles_viewerBadge__CvC9N{
-    visibility:hidden;
+    visibility: hidden;
 }
 .st-emotion-cache-h4xjwg ezrtsby2{
-    visibility:hidden;
+    visibility: hidden;
 }
+.st-emotion-cache-h4xjwg ezrtsby2
 </style>
 """, unsafe_allow_html=True)
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
