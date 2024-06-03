@@ -10,11 +10,10 @@ st.set_page_config(
 st.markdown("""
 <style>
 header{visibility: hidden;}
-.viewerBadge_link__qRIco{visibility: hidden;}
+.viewerBadge_link__qRIco{visibility: hidden; width: 0px; height: 0px;}
 #MainMenu {visibility: hidden;} 
 footer {visibility: hidden;}
 .viewerBadge_link__qRIco{visibility: hidden}
-a{visibility: hidden;}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-15ecox0 ezrtsby0{visibility: hidden;}
