@@ -7,6 +7,16 @@ st.set_page_config(
     page_title="ELO-PGD"
 )
 
+st.markdown("""
+<style>
+.viewerBadge_container__r5tak styles_viewerBadge__CvC9N{
+    visibility:hidden;
+}
+.st-emotion-cache-h4xjwg ezrtsby2{
+    visibility:hidden;
+}
+</style>
+""", unsafe_allow_html=True)
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 pergunta = """Você se chama ELO-PGD, um assistente virtual para orientar sobre o PGD-UFPE. Elo entre o servidor e as informações do PGD.\nVocê não dá respostas sobre nenhum outro assunto além disso, independente do que seja solicitado. A única exceção é se for perguntado qual foi a última pergunta, nesse caso pode responder normalmente.
