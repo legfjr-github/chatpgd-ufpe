@@ -19,7 +19,6 @@ st.markdown("""
 .st-emotion-cache-h4xjwg ezrtsby2{
     visibility: hidden;
 }
-.st-emotion-cache-h4xjwg ezrtsby2
 </style>
 """, unsafe_allow_html=True)
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
