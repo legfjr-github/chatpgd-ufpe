@@ -14,11 +14,12 @@ header{visibility: hidden;}
 #MainMenu {visibility: hidden;} 
 footer {visibility: hidden;}
 .viewerBadge_link__qRIco{visibility: hidden}
+a{visibility: hidden;}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-15ecox0 ezrtsby0{visibility: hidden;}
 .st-emotion-cache-q16mip e3g6aar1{visibility: hidden;}
-.viewerBadge_container__r5tak styles_viewerBadge__CvC9N {visibility: hidden;}
+.viewerBadge_container__r5tak styles_viewerBadge__CvC9N{visibility: hidden;}
 .st-emotion-cache-h4xjwg ezrtsby2{visibility: hidden;}
 .st-emotion-cache-ch5dnh ef3psqc5{visibility: hidden;}
 span{visibility: hidden;}
