@@ -12,6 +12,7 @@ st.markdown("""
 .viewerBadge_link__qRIco{visibility: hidden;}
 #MainMenu {visibility: hidden;} 
 footer {visibility: hidden;}
+.viewerBadge_link__qRIco{visibility: hidden}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-ztfqz8 ef3psqc5{visibility: hidden;}
 .st-emotion-cache-15ecox0 ezrtsby0{visibility: hidden;}
