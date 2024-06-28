@@ -4,3 +4,4 @@ langchain-google-genai
 openai
 tiktoken
 streamlit
+pygsheets
