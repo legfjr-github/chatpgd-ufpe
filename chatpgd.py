@@ -76,38 +76,34 @@ def save_message(sheet, speaker, message):
 inicio = 0
 if inicio == 0:
     inicio = 1
-def main():
+st.title("Chat-PGD")
+if "diff" not in st.session_state:
+    st.session_state.diff = datetime.now()
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    save_message(sheet, "NovoChat", "NovoChat")
 
-    st.title("Chat-PGD")
-    if "diff" not in st.session_state:
-        st.session_state.diff = datetime.now()
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-        save_message(sheet, "NovoChat", "NovoChat")
 
-    
-    for message in st.session_state.messages:
-        if message["role"] == "user":
-            pergunta += f"\npergunta:\n{message['content']}"
-        else:
-            pergunta += f"\nresposta:\n{message['content']}"
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+for message in st.session_state.messages:
+    if message["role"] == "user":
+        pergunta += f"\npergunta:\n{message['content']}"
+    else:
+        pergunta += f"\nresposta:\n{message['content']}"
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-    if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        save_message(sheet, "Usuário", prompt)
-        pergunta += f"\npergunta:\n{prompt}"
-        result = llm.invoke(pergunta)
-        response = result.content
-        pergunta += f"\nresposta:\n{response}"
-        if response:
-            with st.chat_message("assistant"):
-                st.markdown(response)
-            st.session_state.messages.append({"role": "assistant", "content": response})
-            save_message(sheet, "Sistema", response)
+if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    save_message(sheet, "Usuário", prompt)
+    pergunta += f"\npergunta:\n{prompt}"
+    result = llm.invoke(pergunta)
+    response = result.content
+    pergunta += f"\nresposta:\n{response}"
+    if response:
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        save_message(sheet, "Sistema", response)
 
-if __name__ =="__main__":
-    main()
