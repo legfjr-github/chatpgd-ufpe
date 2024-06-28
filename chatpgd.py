@@ -14,7 +14,7 @@ encoded_key = str(encoded_key)
 service_key= json.loads(base64.b64decode(encoded_key).decode('ASCII'))
 perguntaEnc = os.getenv("PERGUNTA")
 perguntaEnc = str(perguntaEnc)
-pergunta = base64.b64decode(perguntaEnc).decode('ASCII')
+pergunta = base64.b64decode(perguntaEnc).decode('UTF-8')
 with open('temp.json', 'w') as file:
     json.dump(service_key, file)
 
