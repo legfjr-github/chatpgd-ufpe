@@ -6,6 +6,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # from dotenv import load_dotenv, find_dotenv
 import json
 import base64
+import pytz
 
 # load_dotenv(find_dotenv())
 encoded_key = os.getenv("TESTE")
@@ -15,6 +16,7 @@ with open('temp.json', 'w') as file:
     json.dump(service_key, file)
 
 st.set_page_config(page_title="ELO-PGD")
+timezone = pytz.timezone('America/Sao_Paulo')  # Exemplo: São Paulo, Brasil
 
 st.markdown("""
 <style>
@@ -43,7 +45,7 @@ worksheet_title = "Página1"
 gc = pygsheets.authorize(service_account_file=credential_file)
 temp = gc.open(sheet_title)
 sheet = temp.worksheet_by_title(worksheet_title)
-hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+hora = datetime.now(timezone).strftime("%d/%m/%Y %H:%M:%S")
 if "diff" not in st.session_state:
     cont = int(sheet.cell("E1").value) + 1
     st.session_state.diff = f"Chat nº {cont} iniciado as {hora}" 
