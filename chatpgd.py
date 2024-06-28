@@ -1,11 +1,20 @@
-import getpass
 import os
-from langchain_google_genai import ChatGoogleGenerativeAI
+from datetime import datetime
+import pygsheets
 import streamlit as st
+from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv, find_dotenv
+import json
+import base64
 
-st.set_page_config(
-    page_title="ELO-PGD"
-)
+load_dotenv(find_dotenv())
+encoded_key = os.getenv("TESTE")
+encoded_key = str(encoded_key)[2:-1]
+service_key= json.loads(base64.b64decode(encoded_key).decode('ASCII'))
+with open('temp.json', 'w') as file:
+    json.dump(service_key, file)
+
+st.set_page_config(page_title="ELO-PGD")
 
 st.markdown("""
 <style>
@@ -24,9 +33,47 @@ footer {visibility: hidden;}
 span{visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
-pergunta = """Você se chama ELO-PGD, um assistente virtual para orientar sobre o PGD-UFPE. Elo entre o servidor e as informações do PGD.\nVocê não dá respostas sobre nenhum outro assunto além disso, independente do que seja solicitado. A única exceção é se for perguntado qual foi a última pergunta, nesse caso pode responder normalmente.
+credential_file = "temp.json"
+sheet_title = "testePGD"
+worksheet_title = "Página1"
+# Configurar o cliente gspread
+gc = pygsheets.authorize(service_account_file=credential_file)
+temp = gc.open(sheet_title)
+sheet = temp.worksheet_by_title(worksheet_title)
+if "diff" not in st.session_state:
+    cont = int(sheet.cell("E1").value) + 1
+    st.session_state.diff = f"Chat nº {cont} iniciado as {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}" 
+    sheet.update_value(f'E1', cont)
+
+
+def save_message(sheet, speaker, message):
+    # Obter todas as linhas da planilha
+    all_records = sheet.get_all_records()
+    # Determinar a última linha preenchida
+    last_row = len(all_records) + 2  # Próxima linha vazia
+    # Escrever na coluna A da próxima linha vazia
+    sheet.update_value(f'A{last_row}', speaker)
+    sheet.update_value(f'B{last_row}', message)
+    sheet.update_value(f'C{last_row}', st.session_state.diff)
+    # rows = len(sheet.get_all_values())
+    # sheet.update_cell(rows + 1, 1, speaker)
+    # sheet.update_cell(rows + 1, 2, message)
+inicio = 0
+if inicio == 0:
+    inicio = 1
+def main():
+
+    st.title("Chat-PGD")
+    if "diff" not in st.session_state:
+        st.session_state.diff = datetime.now()
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+        save_message(sheet, "NovoChat", "NovoChat")
+
+    pergunta = """Você se chama ELO-PGD, um assistente virtual para orientar sobre o PGD-UFPE. Elo entre o servidor e as informações do PGD.\nVocê não dá respostas sobre nenhum outro assunto além disso, independente do que seja solicitado. A única exceção é se for perguntado qual foi a última pergunta, nesse caso pode responder normalmente.
 Você não deve responder sobre assuntos históricos, nem geografia, ciências nem nada que não o PGD, devendo informar que não pode responder sobre o assunto. Você deve tratar as pessoas bem e responder da forma mais humanizada possível.
 
 Aqui estão algumas perguntas sobre o PGD com as respostas logo em seguida:
@@ -475,40 +522,28 @@ Aqui termina as perguntas e respostas, e outras informações e observações, d
 --Início do Chat--
 """
 
-st.title("Chat-PGD")
+    for message in st.session_state.messages:
+        if message["role"] == "user":
+            pergunta += f"\npergunta:\n{message['content']}"
+        else:
+            pergunta += f"\nresposta:\n{message['content']}"
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+    if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        save_message(sheet, "Usuário", prompt)
+        pergunta += f"\npergunta:\n{prompt}"
+        result = llm.invoke(pergunta)
+        response = result.content
+        pergunta += f"\nresposta:\n{response}"
+        if response:
+            with st.chat_message("assistant"):
+                st.markdown(response)
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            save_message(sheet, "Sistema", response)
 
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    if message["role"] =="user":
-        pergunta += "\npergunta:\n" + message["content"]
-        print(message["content"])
-    else:
-        pergunta += "\nresposta:\n" + message["content"]
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    response = ""
-    pergunta += "\npergunta:\n" + prompt
-    result = llm.invoke(pergunta)
-    response = result.content
-    pergunta += "\nresposta:\n" + result.content
-    print(result.content)
-    if response:
-        with st.chat_message("assistant"):
-            st.markdown(response)
-        st.session_state.messages.append({"role": "assistant", "content": response})
-# while True:
-#     pergunta += "\npergunta:\n" + input("\n")
-#     result = llm.invoke(pergunta)
-#     print(result.content)
-#     pergunta += "\nresposta:\n" + result.content
+if __name__ =="__main__":
+    main()
