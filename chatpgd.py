@@ -9,7 +9,7 @@ import base64
 
 # load_dotenv(find_dotenv())
 encoded_key = os.getenv("TESTE")
-encoded_key = str(encoded_key)[2:-1]
+encoded_key = str(encoded_key)[1:-1]
 service_key= json.loads(base64.b64decode(encoded_key).decode('ASCII'))
 with open('temp.json', 'w') as file:
     json.dump(service_key, file)
