@@ -48,7 +48,7 @@ sheet = temp.worksheet_by_title(worksheet_title)
 hora = datetime.now(timezone).strftime("%d/%m/%Y %H:%M:%S")
 
 if "contador" not in st.session_state:
-    st.session_state.contador = 1
+    st.session_state.contador = 0
 
 if "diff" not in st.session_state:
     cont = int(sheet.cell("E1").value) + 1
@@ -64,7 +64,7 @@ def save_message(sheet, speaker, message):
     # Escrever na coluna A da próxima linha vazia
     sheet.update_value(f'A{last_row}', speaker)
     sheet.update_value(f'B{last_row}', message)
-    texto = st.session_state.diff + "mensagem nº " + str(st.session_state.contador)
+    texto = st.session_state.diff + " mensagem nº " + str(st.session_state.contador)
     sheet.update_value(f'C{last_row}', texto)
     st.session_state.contador += 1 
     # rows = len(sheet.get_all_values())
