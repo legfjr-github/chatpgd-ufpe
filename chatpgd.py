@@ -44,7 +44,6 @@ llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 credential_file = "temp.json"
 sheet_title = "testePGD"
 worksheet_title = "Página1"
-# Configurar o cliente gspread
 gc = pygsheets.authorize(service_account_file=credential_file)
 temp = gc.open(sheet_title)
 sheet = temp.worksheet_by_title(worksheet_title)
@@ -60,30 +59,23 @@ if "diff" not in st.session_state:
 
 
 def save_message(sheet, speaker, message):
-    # Obter todas as linhas da planilha
     all_records = sheet.get_all_records()
-    # Determinar a última linha preenchida
     last_row = len(all_records) + 2  # Próxima linha vazia
-    # Escrever na coluna A da próxima linha vazia
     sheet.update_value(f'A{last_row}', speaker)
     sheet.update_value(f'B{last_row}', message)
     texto = st.session_state.diff +" " + " mensagem nº " + str(st.session_state.contador)
     sheet.update_value(f'C{last_row}', texto)
     st.session_state.contador += 1 
-    # rows = len(sheet.get_all_values())
-    # sheet.update_cell(rows + 1, 1, speaker)
-    # sheet.update_cell(rows + 1, 2, message)
+
 inicio = 0
 if inicio == 0:
     inicio = 1
 st.title("Chat-PGD")
-if "diff" not in st.session_state:
-    st.session_state.diff = datetime.now()
 if "messages" not in st.session_state:
     st.session_state.messages = []
     save_message(sheet, "NovoChat", "NovoChat")
 
-
+pergunta += st.session_state.diff + "\n" + "--Início do Chat--\n"
 for message in st.session_state.messages:
     if message["role"] == "user":
         pergunta += f"\npergunta:\n{message['content']}"
