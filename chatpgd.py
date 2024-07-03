@@ -39,6 +39,8 @@ span{visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown('<img style="float: left;" width=150px src="https://www.ufpe.br/documents/4462600/0/PGD+LOGO.png/2783cf94-3db6-4270-9f2b-ba32901120e8?t=1715183714641" /><h1>Chat-PGD</h1>', unsafe_allow_html=True)
+
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
 credential_file = "temp.json"
@@ -70,7 +72,7 @@ def save_message(sheet, speaker, message):
 inicio = 0
 if inicio == 0:
     inicio = 1
-st.title("Chat-PGD")
+# st.title("Chat-PGD")
 if "messages" not in st.session_state:
     st.session_state.messages = []
     save_message(sheet, "NovoChat", "NovoChat")
