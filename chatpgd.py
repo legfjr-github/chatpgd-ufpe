@@ -11,7 +11,7 @@ import pytz
 # load_dotenv(find_dotenv())
 encoded_key = os.getenv("TESTE")
 encoded_key = str(encoded_key)
-service_key= json.loads(base64.b64decode(encoded_key).decode('ASCII'))
+service_key= json.loads(base64.b64decode(encoded_key).decode('UTF-8'))
 perguntaEnc = os.getenv("PERGUNTA")
 perguntaEnc = str(perguntaEnc)
 pergunta = base64.b64decode(perguntaEnc).decode('UTF-8')
@@ -39,9 +39,9 @@ span{visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<img style="float: left;" width=150px src="https://www.ufpe.br/documents/4462600/0/PGD+LOGO.png/2783cf94-3db6-4270-9f2b-ba32901120e8?t=1715183714641" /><h1>Chat-PGD</h1>', unsafe_allow_html=True)
+st.markdown('<img style="float: left;" width=150px src="https://www.ufpe.br/documents/4462600/0/PGD+LOGO.png/2783cf94-3db6-4270-9f2b-ba32901120e8?t=1715183714641" /><h1>Chat-PGD UFPE</h1>', unsafe_allow_html=True)
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+
 
 credential_file = "temp.json"
 sheet_title = "testePGD"
@@ -58,7 +58,12 @@ if "diff" not in st.session_state:
     cont = int(sheet.cell("E1").value) + 1
     st.session_state.diff = f"Chat nº {str(cont).zfill(4)} iniciado as {hora}" 
     sheet.update_value(f'E1', cont)
+    if "api" not in st.session_state:
+        st.session_state.api = cont
+        
+api_key = os.getenv(f'key{st.session_state.api%6}')
 
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
 
 def save_message(sheet, speaker, message):
     all_records = sheet.get_all_records()
