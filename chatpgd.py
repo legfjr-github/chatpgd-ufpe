@@ -52,7 +52,7 @@ sheet = temp.worksheet_by_title(worksheet_title)
 hora = datetime.now(timezone).strftime("%d/%m/%Y %H:%M:%S")
 
 if "contador" not in st.session_state:
-    st.session_state.contador = 0
+    st.session_state.contador = 1
 
 if "diff" not in st.session_state:
     cont = int(sheet.cell("E1").value) + 1
@@ -62,8 +62,6 @@ if "diff" not in st.session_state:
         st.session_state.api = cont
         
 api_key = os.getenv(f'key{st.session_state.api%6}')
-
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
 
 def save_message(sheet, speaker, message):
     all_records = sheet.get_all_records()
@@ -80,7 +78,6 @@ if inicio == 0:
 # st.title("Chat-PGD")
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    save_message(sheet, "NovoChat", "NovoChat")
 
 pergunta += st.session_state.diff + "\n" + "--Início do Chat--\n"
 for message in st.session_state.messages:
@@ -92,6 +89,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
     with st.chat_message("user"):
         st.markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
