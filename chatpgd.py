@@ -68,7 +68,7 @@ def save_message(sheet, speaker, message):
     last_row = len(all_records) + 2  # Próxima linha vazia
     sheet.update_value(f'A{last_row}', speaker)
     sheet.update_value(f'B{last_row}', message)
-    texto = st.session_state.diff +" " + " mensagem nº " + str(st.session_state.contador)
+    texto = st.session_state.diff +" " + " mensagem nº " + str(st.session_state.contador).zfill(3)
     sheet.update_value(f'C{last_row}', texto)
     st.session_state.contador += 1 
 
