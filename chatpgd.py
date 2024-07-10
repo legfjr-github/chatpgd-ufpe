@@ -80,11 +80,11 @@ for message in st.session_state.messages:
 
 if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
     if "diff" not in st.session_state:
-    cont = int(sheet.cell("E1").value) + 1
-    st.session_state.diff = f"Chat nº {str(cont).zfill(4)} iniciado as {hora}" 
-    sheet.update_value(f'E1', cont)
-    if "api" not in st.session_state:
-        st.session_state.api = cont
+        cont = int(sheet.cell("E1").value) + 1
+        st.session_state.diff = f"Chat nº {str(cont).zfill(4)} iniciado as {hora}" 
+        sheet.update_value(f'E1', cont)
+        if "api" not in st.session_state:
+            st.session_state.api = cont
         
     api_key = os.getenv(f'key{st.session_state.api%35}')
     pergunta += st.session_state.diff + "\n" + "--Início do Chat--\n"
