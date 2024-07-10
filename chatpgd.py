@@ -63,10 +63,7 @@ def save_message(sheet, speaker, message):
     sheet.update_value(f'C{last_row}', texto)
     st.session_state.contador += 1 
 
-inicio = 0
-if inicio == 0:
-    inicio = 1
-# st.title("Chat-PGD")
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -86,7 +83,7 @@ if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
         if "api" not in st.session_state:
             st.session_state.api = cont
         
-    api_key = os.getenv(f'key{st.session_state.api%35}')
+    api_key = os.getenv(f'key{st.session_state.api%36}')
     pergunta += st.session_state.diff + "\n" + "--Início do Chat--\n"
     
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
@@ -103,4 +100,3 @@ if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
             st.markdown(response)
         st.session_state.messages.append({"role": "assistant", "content": response})
         save_message(sheet, "Sistema", response)
-
