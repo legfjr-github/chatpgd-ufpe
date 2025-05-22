@@ -86,7 +86,7 @@ if prompt := st.chat_input("Digite sua dúvida sobre o PGD..."):
     api_key = os.getenv(f'key{st.session_state.api%23}')
     pergunta += st.session_state.diff + "\n" + "--Início do Chat--\n"
     
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=api_key)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=api_key)
     with st.chat_message("user"):
         st.markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
